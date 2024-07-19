@@ -34,12 +34,12 @@ const routes = [
     ],
   },
   {
-    path: '/user',
+    path: '/',
     name: 'user',
     component: () => import('../views/Userboard.vue'),
     children: [
       {
-        path: 'index',
+        path: '/',
         name: 'index',
         component: () => import('../views/Index.vue'),
       },

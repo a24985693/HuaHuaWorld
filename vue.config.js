@@ -1,3 +1,5 @@
 module.exports = {
-  publicPath: '/RWD--/dist/'
+  publicPath: process.env.NODE_ENV === 'production'
+  ? '/RWD--/dist/'
+  : '/'
 }
