@@ -31,10 +31,14 @@
         <hr>
         <div class="row mb-3">
           <div class="col-8">
-            <div class="h3" v-if="!product.price">NT${{ product.origin_price }}</div>
-            <div class="h3" v-if="product.price">NT${{ product.price }}</div>
+            <div class="h3" v-if="!product.price">
+              NT${{ $filters.currency(product.origin_price) }}
+            </div>
+            <div class="h3" v-if="product.price">
+              NT${{ $filters.currency(product.price) }}
+            </div>
             <del class="h6 text-muted" v-if="product.origin_price != product.price">
-              NT${{ product.origin_price }}
+              NT${{ $filters.currency(product.origin_price) }}
             </del>
           </div>
           <div class="col align-self-start text-end">

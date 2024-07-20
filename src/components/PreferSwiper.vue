@@ -35,13 +35,13 @@
           <h5 class="card-title text-start">{{ item.title }}</h5>
           <div class="d-flex justify-content-between align-items-center">
             <p class="price fw-semibold mb-0 text-pink p-0" v-if="item.price">
-              NT${{ item.price }}
+              NT${{ $filters.currency(item.price) }}
             </p>
             <p class="price fw-semibold mb-0 text-pink p-0" v-else>
-              NT${{ item.origin_price }}
+              NT${{ $filters.currency(item.origin_price) }}
             </p>
             <del v-if="item.origin_price != item.price">
-              NT${{ item.origin_price }}
+              NT${{ $filters.currency(item.origin_price) }}
             </del>
           </div>
         </div>
