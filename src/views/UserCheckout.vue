@@ -32,9 +32,9 @@
           </thead>
           <tbody>
             <tr v-for="item in order.products" :key="item.id">
-              <td class="row flex-column flex-md-row align-items-center">
+              <td class="d-flex flex-column flex-md-row align-items-center">
                 <div class="position-relative col w-100 w-xl-50 pt-100 pt-xl-50">
-                  <img :src="item.product.imageUrl" alt=""
+                  <img :src="item.product.imageUrl" alt="商品圖片"
                     class="object-fit-cover position-absolute top-0
                     bottom-0 start-0 end-0 w-100 h-100">
                 </div>
@@ -46,13 +46,15 @@
               <td class="text-end">NT${{ $filters.currency(item.final_total) }}</td>
             </tr>
           </tbody>
-          <tfoot>
+          <tfoot class="w-100">
             <tr v-if="couponCode">
-              <td colspan="2" class="text-end text-success">已使用優惠券</td>
+              <td></td>
+              <td class="text-end text-success">已使用優惠券</td>
               <td class="text-success text-end">{{ couponCode }}</td>
             </tr>
             <tr>
-              <td colspan="2" class="text-end">總計</td>
+              <td></td>
+              <td class="text-end">總計</td>
               <td class="text-end">NT${{ $filters.currency(order.total) }}</td>
             </tr>
           </tfoot>
@@ -96,7 +98,7 @@
             <p>確認訂單內容後，點擊付款即完成訂單!</p>
           </div>
           <div class="col col-md-5 text-end">
-            <button class="btn btn-danger"
+            <button class="btn btn-danger" type="button"
             @click="payOrder">
               確認付款
             </button>
@@ -104,7 +106,7 @@
         </div>
         <div class="row">
           <div class="col text-end">
-            <router-link v-if="order.is_paid" to="/user/index"
+            <router-link v-if="order.is_paid" to="/"
               class="fw-semibold">
               回到首頁
             </router-link>

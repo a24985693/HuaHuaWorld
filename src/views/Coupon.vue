@@ -1,8 +1,8 @@
 <template>
   <Loading :active="isLoading"></Loading>
   <div class="text-end">
-    <button class="btn btn-secondary"
-      @click.prevent="openModal(true)">新增優惠券
+    <button class="btn btn-secondary" type="button"
+      @click="openModal(true)">新增優惠券
     </button>
   </div>
   <div class="table-responsive">
@@ -27,9 +27,9 @@
           </td>
           <td>
             <div class="btn-group">
-              <button class="btn btn-outline-gray btn-sm"
+              <button class="btn btn-outline-gray btn-sm" type="button"
                 @click="openModal(false, item)">編輯</button>
-              <button class="btn btn-outline-danger btn-sm"
+              <button class="btn btn-outline-danger btn-sm" type="button"
                 @click="openDelModal(item)">刪除</button>
             </div>
           </td>

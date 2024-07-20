@@ -13,12 +13,12 @@
   >
     <swiper-slide>
       <div class="ratio ratio-1x1">
-        <img alt="" :src="product.imageUrl"  class="object-fit-cover"/>
+        <img alt="產品圖片" :src="product.imageUrl"  class="object-fit-cover"/>
       </div>
     </swiper-slide>
     <swiper-slide v-for="item in product.images" :key="item.id">
       <div class="ratio ratio-1x1">
-        <img alt="" :src="item" class="object-fit-cover position-absolute
+        <img alt="產品圖片" :src="item" class="object-fit-cover position-absolute
         top-0 bottom-0 start-0 end-0" />
       </div>
     </swiper-slide>

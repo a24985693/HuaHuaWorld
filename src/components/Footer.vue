@@ -3,7 +3,7 @@
     <div class="container py-5">
       <div class="row justify-content-center align-items-center g-4 mb-4 px-3">
         <div class="col-12 col-md-3 text-center">
-          <img src="../assets/images/footerLogo.png" alt="" width="120px"
+          <img src="../assets/images/footerLogo.png" alt="頁尾logo" width="120px"
             class="mb-2">
           <div class="fs-4">
             <a href="#" class="link-dark">
@@ -24,19 +24,19 @@
           <h4 class="mb-2">關於本站</h4>
           <ul class="list-unstyled">
             <li class="mb-1">
-              <router-link to="/user/productsList"
+              <router-link to="/productsList"
                 class="text-decoration-none">
                 產品列表
               </router-link>
             </li>
             <li class="mb-1">
-              <router-link to="/user/articlesList"
+              <router-link to="/articlesList"
                 class="text-decoration-none">
                 最新消息
               </router-link>
             </li>
             <li class="mb-1">
-              <router-link to="/user/inquire"
+              <router-link to="/inquire"
                 class="text-decoration-none">
                 訂單查詢
               </router-link>
@@ -55,7 +55,7 @@
           <div class="input-group">
             <input type="text" class="form-control"
               placeholder="請輸入電子信箱">
-            <button class="btn btn-secondary">訂閱</button>
+            <button type="button" class="btn btn-secondary">訂閱</button>
           </div>
         </div>
       </div>

@@ -28,7 +28,7 @@
             sale
           </span>
           <img :src="item.imageUrl" class="card-img-top object-fit-cover w-100"
-            alt="...">
+            alt="圖片">
         </div>
         <div class="card-body">
           <p class="fs-14 mb-1 text-start">#{{ item.category }}</p>
@@ -48,6 +48,7 @@
         <div class="card-foot p-0">
           <div class="btn-group btn-group-sm w-100">
             <button class="btn btn-info rounded-0 py-2"
+              type="button"
               @click.stop="addtoCart(item)"
               :disabled="item.id === this.btnLoading">
               <div class="spinner-border spinner-border-sm"
@@ -120,30 +121,8 @@ export default {
         });
     },
     getProduct(id) {
-      this.$router.push(`/user/product/${id}`);
+      this.$router.push(`/product/${id}`);
     },
-    // addtoCart(id) {
-    //   this.btnLoading = id;
-    //   const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
-    //   const cart = {
-    //     product_id: id,
-    //     qty: 1,
-    //   };
-    //   console.log(id);
-    //   this.$http.post(url, { data: cart })
-    //     .then((res) => {
-    //       const { title } = res.data.data.product;
-    //       if (res.data.success) {
-    //         this.getCart();
-    //         const messageTitle = '加入成功';
-    //         this.emitter.emit('push-message', {
-    //           style: 'success',
-    //           title: messageTitle,
-    //           content: `已將${title}加入購物車`,
-    //         });
-    //       }
-    //     });
-    // },
   },
   created() {
     this.getProducts();

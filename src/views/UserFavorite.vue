@@ -11,7 +11,7 @@
               py-3 position-relative">
               <li class="col-4 col-md-3">
                 <div class="product-img">
-                  <img :src="item.imageUrl" alt=""
+                  <img :src="item.imageUrl" alt="商品圖片"
                     class="object-fit-cover"
                     @click="getProduct(item.id)">
                   <span class="sale badge bg-pink position-absolute text-white top-0 end-0
@@ -21,7 +21,7 @@
                   </span>
                 </div>
                 <div class="delete-icon">
-                  <button class="btn"
+                  <button class="btn" type="button"
                     @click="delFav(item)">
                     <i class="fa-solid fa-xmark text-gray fs-3"></i>
                   </button>
@@ -50,7 +50,7 @@
                   </ul>
                   <li class="col col-md-5 col-xl-4">
                     <button class="btn btn-sm btn-info w-100 rounded-0 py-1"
-                      @click.stop="addtoCart(item)"
+                      @click.stop="addtoCart(item)" type="button"
                       :disabled="item.id === this.btnLoading" >
                       <div class="spinner-border spinner-border-sm"
                         role="status"
@@ -68,7 +68,7 @@
           </div>
           <div class="row justify-content-between mb-2">
             <div class="col">
-              <button class="btn btn-sm btn-outline-gray"
+              <button class="btn btn-sm btn-outline-gray" type="button"
                 @click="clearFav">
                 清空收藏
               </button>
@@ -85,7 +85,7 @@
             <i class="fa-solid fa-heart text-gray mb-5 d-block"
               style="font-size: 120px;"></i>
             <h5 class="mb-3">我的收藏目前沒有商品</h5>
-            <router-link to="/user/productsList" class="fw-semibold text-pink">
+            <router-link to="/productsList" class="fw-semibold text-pink">
               繼續挑選
             </router-link>
           </div>
@@ -143,7 +143,7 @@ export default {
       });
     },
     getProduct(id) {
-      this.$router.push(`/user/product/${id}`);
+      this.$router.push(`/product/${id}`);
     },
   },
 };

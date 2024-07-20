@@ -4,7 +4,7 @@
     <nav aria-label="breadcrumb" class="mb-3">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <router-link to="/user/index">首頁</router-link>
+          <router-link to="/">首頁</router-link>
         </li>
         <li class="breadcrumb-item active">
           最新消息
@@ -20,7 +20,7 @@
             @click="gotoArticle(item.id)">
             <div class="col-md-4 position-relative">
               <div class="img-frame h-100 w-100"></div>
-              <img :src="item.image" alt="..."
+              <img :src="item.image" alt="文章圖片"
                 class="w-100 h-100 object-fit-cover"
                 style="min-height: 200px;">
             </div>
@@ -92,7 +92,7 @@ export default {
         });
     },
     gotoArticle(id) {
-      this.$router.push(`/user/article/${id}`);
+      this.$router.push(`/article/${id}`);
     },
   },
   created() {

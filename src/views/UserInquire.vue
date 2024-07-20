@@ -7,10 +7,10 @@
         <div class="input-group">
           <input type="text" class="form-control"
           placeholder="請輸入訂單號碼" v-model="orderId">
-          <button class="btn btn-secondary"
+          <button class="btn btn-secondary" type="button"
             @click="getOrder">
             查詢
-            </button>
+          </button>
         </div>
       </div>
     </div>
@@ -30,7 +30,7 @@
             <tr v-for="item in order.products" :key="item.id">
               <td class="row flex-column flex-md-row align-items-center">
                 <div class="position-relative col w-100 w-xl-50 pt-100 pt-xl-50">
-                  <img :src="item.product.imageUrl" alt=""
+                  <img :src="item.product.imageUrl" alt="商品圖片"
                     class="object-fit-cover position-absolute top-0
                     bottom-0 start-0 end-0 w-100 h-100">
                 </div>
@@ -92,7 +92,7 @@
             <p>確認訂單內容後，點擊付款即完成訂單!</p>
           </div>
           <div class="col col-md-5 text-end">
-            <button class="btn btn-danger"
+            <button class="btn btn-danger" type="button"
             @click="payOrder">
               確認付款
             </button>

@@ -4,10 +4,10 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <router-link to="/user/index">首頁</router-link>
+          <router-link to="/">首頁</router-link>
         </li>
         <li class="breadcrumb-item">
-          <router-link to="/user/productsList">產品</router-link>
+          <router-link to="/productsList">產品</router-link>
         </li>
         <li class="breadcrumb-item active" aria-current="page">
           {{ product.title }}
@@ -49,7 +49,8 @@
             <div class="input-group">
               <button class="btn btn-secondary rounded-0"
                 @click="updateQuantity('minus');"
-                :disabled="quantity <= 1">
+                :disabled="quantity <= 1"
+                type="button">
                 -
               </button>
               <input type="number" class="form-control" v-model="quantity"
@@ -57,7 +58,8 @@
                 value=3>
               <button class="btn btn-secondary rounded-0"
                 @click="updateQuantity('plus');"
-                :disabled="quantity >= 20">
+                :disabled="quantity >= 20"
+                type="button">
                 +
               </button>
             </div>

@@ -96,7 +96,7 @@
             <div class="row justify-content-center" v-if="tempProduct.imageUrl">
               <div class="col-md-6">
                 <div class="ratio ratio-1x1">
-                  <img class="img-fluid object-fit-cover" alt=""
+                  <img class="img-fluid object-fit-cover" alt="主圖片"
                   :src="tempProduct.imageUrl">
                 </div>
                 <div class="mb-3 input-group">
@@ -147,7 +147,7 @@
                 <!-- v-model 就會綁定到 tempProduct.images 陣列的正確元素上，
                   而不是循環內部的局部變數 image。這 -->
                 <div class="ratio ratio-1x1">
-                  <img class="img-fluid object-fit-cover" alt="" :src="image">
+                  <img class="img-fluid object-fit-cover" alt="副圖片" :src="image">
                 </div>
                 <div class="input-group">
                   <input type="url" class="form-control"

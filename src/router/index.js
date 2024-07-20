@@ -90,12 +90,12 @@ const routes = [
       },
     ],
   },
-  // {
-  //   path: '/:pathMatch(.*)*',
-  //   redirect: {
-  //     name: 'index',
-  //   },
-  // },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: {
+      name: 'index',
+    },
+  },
 ];
 
 const router = createRouter({

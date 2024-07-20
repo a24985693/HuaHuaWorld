@@ -30,9 +30,9 @@
           </td>
           <td>
             <div class="btn-group">
-              <button class="btn btn-outline-gray btn-sm"
+              <button class="btn btn-outline-gray btn-sm" type="button"
                 @click="openModal(item)">編輯</button>
-              <button class="btn btn-outline-danger btn-sm"
+              <button class="btn btn-outline-danger btn-sm" type="button"
                 @click="openDelModal(item)">刪除</button>
             </div>
           </td>

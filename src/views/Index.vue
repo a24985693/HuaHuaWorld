@@ -66,7 +66,7 @@
     <div class="text-center position-absolute start-50 translate-middle" style="top: 42%;">
       <h2 class="fw-blod mb-3 text-white">在花花世界尋找屬於您的花</h2>
       <router-link class="btn btn-outline-primary rounded-0 text-dark"
-        to="/user/productsList">
+        to="/productsList">
         開始探索
         <i class="fa-solid fa-caret-right"></i>
       </router-link>
@@ -80,13 +80,15 @@
             data-aos="fade-up" data-aos-duration="1100">
             <div class="card bg-dark text-light border-0 mb-2">
               <img src="https://images.unsplash.com/photo-1595467959554-9ffcbf37f10f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                class="card-img object-fit-cover h-100" alt="...">
+                class="card-img object-fit-cover h-100" alt="捧花圖片">
               <div class="card-img-overlay top-auto text-center">
                 <h5 class="card-title fw-bold fs-4">捧花</h5>
                 <p class="card-text">Bridal Bouquet</p>
-                <button class="btn btn-info rounded-0 mx-auto">查看更多</button>
+                <button class="btn btn-info rounded-0 mx-auto" type="button">
+                  查看更多
+                </button>
               </div>
-              <router-link to="/user/productsList?category=捧花"
+              <router-link to="/productsList?category=捧花"
                 class="stretched-link">
               </router-link>
             </div>
@@ -96,13 +98,15 @@
               <div class="card bg-dark text-light border-0"
                 data-aos="zoom-in" data-aos-duration="1000">
                 <img src="https://images.unsplash.com/photo-1644248423441-bc7c5dcebeb6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  class="card-img object-fit-cover h-100" alt="...">
+                  class="card-img object-fit-cover h-100" alt="花束圖片">
                 <div class="card-img-overlay top-auto">
                   <h5 class="card-title fw-bold fs-4">花束</h5>
                   <p class="card-text">Bouquet</p>
-                  <button class="btn btn-info rounded-0 mx-auto">查看更多</button>
+                  <button class="btn btn-info rounded-0 mx-auto" type="button">
+                    查看更多
+                  </button>
                 </div>
-                <router-link to="/user/productsList?category=花束"
+                <router-link to="/productsList?category=花束"
                   class="stretched-link">
                 </router-link>
               </div>
@@ -111,13 +115,15 @@
               <div class="card bg-dark text-light border-0"
                 data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
                 <img src="https://images.unsplash.com/photo-1617709862149-296a352a24ad?q=80&w=1967&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  class="card-img object-fit-cover h-100" alt="...">
+                  class="card-img object-fit-cover h-100" alt="花瓶圖片">
                 <div class="card-img-overlay top-auto">
                   <h5 class="card-title fw-bold fs-4">花瓶</h5>
                   <p class="card-text">Vase</p>
-                  <button class="btn btn-info rounded-0 mx-auto">查看更多</button>
+                  <button class="btn btn-info rounded-0 mx-auto" type="button">
+                    查看更多
+                  </button>
                 </div>
-                <router-link to="/user/productsList?category=花瓶"
+                <router-link to="/productsList?category=花瓶"
                   class="stretched-link">
                 </router-link>
               </div>
@@ -128,13 +134,15 @@
           <div class="card bg-dark text-light border-0"
             data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
             <img src="https://images.unsplash.com/photo-1579101403140-c4a51e391a44?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              class="card-img object-fit-cover h-100" alt="...">
+              class="card-img object-fit-cover h-100" alt="乾燥花圖片">
             <div class="card-img-overlay top-auto">
               <h5 class="card-title fw-bold fs-4">乾燥花</h5>
               <p class="card-text">Dried Flowers</p>
-              <button class="btn btn-info rounded-0 mx-auto">查看更多</button>
+              <button class="btn btn-info rounded-0 mx-auto" type="button">
+                查看更多
+              </button>
             </div>
-            <router-link to="/user/productsList?category=乾燥花"
+            <router-link to="/productsList?category=乾燥花"
               class="stretched-link">
             </router-link>
           </div>
@@ -197,7 +205,7 @@ export default {
         });
     },
     gotoArticle(id) {
-      this.$router.push(`/user/article/${id}`);
+      this.$router.push(`/article/${id}`);
     },
   },
   created() {

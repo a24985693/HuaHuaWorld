@@ -8,13 +8,13 @@
           {{ $filters.date(article.create_at) }}‧
           {{ article.author }}
         </p>
-        <img :src="article.image" alt=""
+        <img :src="article.image" alt="文章圖片"
           class="w-100 object-fit-cover mb-4"
           style="max-height: 400px">
         <p class="mb-5 content" style="white-space: pre-line;">
           {{ article.content }}
         </p>
-        <router-link to="/user/articlesList">回到列表</router-link>
+        <router-link to="/articlesList">回到列表</router-link>
       </div>
     </div>
   </div>
@@ -34,7 +34,6 @@ export default {
   methods: {
     getArticle() {
       this.isLoading = true;
-      // console.log(this.$route.params);
       const { id } = this.$route.params;
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/article/${id}`;
       this.$http.get(url)

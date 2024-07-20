@@ -1,14 +1,16 @@
 <template>
   <ul class="nav nav-tabs">
     <li class="nav-item">
-      <button class="nav-link" @click.prevent="tabs = 'productIntro'"
-      :class="{ active: tabs==='productIntro' }">
+      <button class="nav-link" @click="tabs = 'productIntro'"
+      :class="{ active: tabs==='productIntro' }"
+      type="button">
         購買說明
     </button>
     </li>
     <li class="nav-item">
-      <button class="nav-link" @click.prevent="tabs = 'commonQA'"
-        :class="{ active: tabs==='commonQA' }">
+      <button class="nav-link" @click="tabs = 'commonQA'"
+      :class="{ active: tabs==='commonQA' }"
+      type="button">
         常見問題
       </button>
       </li>

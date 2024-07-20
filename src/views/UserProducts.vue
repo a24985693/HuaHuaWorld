@@ -7,7 +7,7 @@
           <nav aria-label="breadcrumb" class="mb-3">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <router-link to="/user/index">首頁</router-link>
+                <router-link to="/">首頁</router-link>
               </li>
               <li class="breadcrumb-item active">
                 產品
@@ -20,18 +20,20 @@
       </div>
       <div class="col-12 col-md-8 col-xl-9">
         <div class="dropdown mb-3 text-end">
-          <button class="btn btn-secondary btn-sm dropdown-toggle rounded-0"
+          <button class="btn btn-secondary btn-sm dropdown-toggle rounded-0" type="button"
             id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
             排序
           </button>
           <ul class="dropdown-menu rounded-0" aria-labelledby="dropdownMenuLink">
             <li>
-              <button class="dropdown-item" @click="sort('low')">
+              <button class="dropdown-item" @click="sort('low')"
+                type="button">
                 價錢低到高
               </button>
             </li>
             <li>
-              <button class="dropdown-item" @click="sort('high')">
+              <button class="dropdown-item" @click="sort('high')"
+                type="button">
                 價錢高到低
               </button>
             </li>
@@ -43,7 +45,7 @@
             v-for="item in this.newData[pagination.current_page -1]"
             :key="item.id">
             <div class="card product-card mx-auto h-100"
-              @click.stop="getProduct(item.id)" @keydown="getProduct(item.id)">
+              @click.stop="getProduct(item.id)">
               <div class="overflow-hidden position-relative">
                 <div class="more-text text-dark text-center bg-secondary py-1
                   position-absolute bottom-0">
@@ -143,7 +145,7 @@ export default {
         });
     },
     getProduct(id) {
-      this.$router.push(`/user/product/${id}`);
+      this.$router.push(`/product/${id}`);
     },
     updateCart() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${this.productClicked.id}`;

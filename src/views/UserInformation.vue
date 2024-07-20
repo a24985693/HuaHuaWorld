@@ -19,7 +19,7 @@
       </div>
       <div class="col col-md-8 col-xl-7">
         <h4 class="mb-3">訂單資料</h4>
-        <Form v-slot="{ errors }">
+        <Form v-slot="{ errors }" @submit="confirm">
           <div class="mb-3">
             <label for="inputEmail" class="form-label">Email</label>
             <Field type="email" class="form-control" id="inputEmail"
@@ -61,22 +61,22 @@
             <textarea type="email" class="form-control" id="inputComment"
               v-model="form.message"></textarea>
           </div>
-        </Form>
-        <div class="row align-items-center">
-          <div class="col">
-            <router-link to="/user/cart"
-              class="fw-semibold link-gray">
-              回上一步
-            </router-link>
-          </div>
-          <div class="col">
-            <div class="text-end">
-              <button class="btn btn-secondary"
-                @click="confirm">送出表單
-              </button>
+          <div class="row align-items-center">
+            <div class="col">
+              <router-link to="/cart"
+                class="fw-semibold link-gray">
+                回上一步
+              </router-link>
+            </div>
+            <div class="col">
+              <div class="text-end">
+                <button class="btn btn-secondary" type="submit">
+                  送出表單
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </Form>
       </div>
     </div>
   </div>
@@ -108,7 +108,7 @@ export default {
         .then((res) => {
           // console.log(res.data);
           if (res.data.success) {
-            this.$router.push(`/user/checkout/${res.data.orderId}`);
+            this.$router.push(`/checkout/${res.data.orderId}`);
           } else {
             Swal.fire({
               title: '資料有誤',

@@ -65,7 +65,7 @@
             </div>
             <div class="row justify-content-center" v-if="tempArticle.image">
               <div class="col-md-6">
-                <img class="img-fluid object-fit-cover" alt=""
+                <img class="img-fluid object-fit-cover" alt="圖片"
                 :src="tempArticle.image">
                 <div class="mb-3 input-group">
                   <input type="url" class="form-control"

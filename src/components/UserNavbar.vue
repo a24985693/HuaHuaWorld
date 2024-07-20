@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-transport fixed-top nav-transition"
-   :class="{ navAnimated: scrollNum || (fullPath != '/user/index')}"
+   :class="{ navAnimated: scrollNum || (fullPath != '/')}"
    data-name="nav">
     <div class="container" data-name="nav">
-      <router-link class="navbar-brand nav-item" to="/user/index" data-name="nav">
+      <router-link class="navbar-brand nav-item" to="/" data-name="nav">
         <img src="../assets/images/navLogo.png" alt="" width="30px">
         花花世界</router-link>
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
@@ -14,37 +14,38 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item mx-1">
-            <router-link class="nav-link" to="/user/productsList" data-name="nav">
+            <router-link class="nav-link" to="/productsList" data-name="nav">
               產品列表
             </router-link>
           </li>
           <li class="nav-item mx-1">
-            <router-link class="nav-link" to="/user/articlesList" data-name="nav">
+            <router-link class="nav-link" to="/articlesList" data-name="nav">
               最新消息
             </router-link>
           </li>
           <li class="nav-item mx-1">
-            <router-link class="nav-link" to="/user/inquire" data-name="nav">
+            <router-link class="nav-link" to="/inquire" data-name="nav">
               訂單查詢
             </router-link>
           </li>
           <li class="nav-item mx-1">
             <router-link class="nav-link position-relative" data-name="nav"
-              to="/user/favorite">
+              to="/favorite">
               <i class="fa-solid fa-heart fs-4"></i>
               <span class="icon-num bg-info text-dark rounded-circle position-absolute
-                d-inline-block text-center fw-bold"
-              style=" ">
+              d-inline-block text-center fw-bold"
+              v-if="favLength">
                 {{ favLength }}
               </span>
             </router-link>
           </li>
           <li class="nav-item mx-1">
             <router-link class="nav-link position-relative" data-name="nav"
-            to="/user/cart">
+            to="/cart">
               <i class="fa-solid fa-cart-shopping fs-4"></i>
               <span class="icon-num bg-info text-dark rounded-circle position-absolute
-                d-inline-block text-center fw-bold">
+              d-inline-block text-center fw-bold"
+              v-if="cartLength">
                 {{ cartLength }}
               </span>
             </router-link>

@@ -1,18 +1,18 @@
 <template>
   <div class="list-group list-group-flush" ref="list" @click="updateLink">
-    <button class="list-group-item list-group-item-action"
+    <button class="list-group-item list-group-item-action" type="button"
     :class="{ active: tempCategory === '全部' }">全部
     </button>
-    <button class="list-group-item list-group-item-action"
+    <button class="list-group-item list-group-item-action" type="button"
       :class="{ active: tempCategory === '花束' }">花束
     </button>
-    <button class="list-group-item list-group-item-action"
+    <button class="list-group-item list-group-item-action" type="button"
       :class="{ active: tempCategory === '花瓶' }">花瓶
     </button>
-    <button class="list-group-item list-group-item-action"
+    <button class="list-group-item list-group-item-action" type="button"
       :class="{ active: tempCategory === '捧花' }">捧花
     </button>
-    <button class="list-group-item list-group-item-action"
+    <button class="list-group-item list-group-item-action" type="button"
       :class="{ active: tempCategory === '乾燥花' }">乾燥花
     </button>
   </div>

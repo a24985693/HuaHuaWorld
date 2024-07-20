@@ -28,12 +28,12 @@
               py-3 position-relative">
               <li class="col-4 col-md-3">
                 <div class="product-img">
-                  <img :src="item.product.imageUrl" alt=""
+                  <img :src="item.product.imageUrl" alt="商品圖片"
                     class="object-fit-cover"
                     @click="getProduct(item.product.id)">
                 </div>
                 <div class="delete-icon">
-                  <button class="btn"
+                  <button class="btn" type="button"
                     @click="deleteCartItem(item)">
                     <i class="fa-solid fa-xmark text-gray fs-3"></i>
                   </button>
@@ -53,17 +53,17 @@
                     align-items-start align-items-md-center justify-content-between">
                     <li class="updateNum d-flex align-items-center justify-content-center
                       mb-2 mb-md-0">
-                      <button @click.prevent="updateCart(item, item.qty-1)"
+                      <button @click="updateCart(item, item.qty-1)"
                         :disabled="item.qty <= 1"
-                        class="btn">
+                        class="btn" type="button">
                         <i class="fa-solid fa-minus fs-5"></i>
                       </button>
                       <input type="number" class="shadow-none" v-model="item.qty"
                         min="1" max="100"
                         @change="updateCart(item, item.qty)">
-                      <button @click.prevent="updateCart(item, item.qty+1);"
+                      <button @click="updateCart(item, item.qty+1);"
                         :disabled="item.qty >= 20"
-                        class="btn">
+                        class="btn" type="button">
                         <i class="fa-solid fa-plus fs-5"></i>
                       </button>
                     </li>
@@ -77,7 +77,7 @@
           </div>
           <div class="row justify-content-between mb-2">
             <div class="col">
-              <button class="btn btn-sm btn-outline-gray"
+              <button class="btn btn-sm btn-outline-gray" type="button"
                 @click="deleteAll">
                 清空購物車
               </button>
@@ -123,7 +123,7 @@
               </a>
             </div>
             <div class="col text-end">
-              <router-link to="/user/information" class="text-decoration-none fw-bold text-pink">
+              <router-link to="/information" class="text-decoration-none fw-bold text-pink">
                 前往結帳
                 <i class="fa-solid fa-angle-right"></i>
               </router-link>
@@ -135,7 +135,7 @@
           <i class="fa-solid fa-cart-shopping text-gray mb-5"
             style="font-size: 120px;"></i>
           <h5 class="mb-3">購物車目前沒有商品</h5>
-          <router-link to="/user/productsList" class="fw-semibold text-pink">
+          <router-link to="/productsList" class="fw-semibold text-pink">
             繼續購物
           </router-link>
         </div>
@@ -240,14 +240,14 @@ export default {
       this.$http.post(url, { data: this.form })
         .then((res) => {
           this.isLoading = false;
-          this.$router.push(`/user/checkout/${res.data.orderId}`);
+          this.$router.push(`/checkout/${res.data.orderId}`);
         });
     },
     returnPage() {
       this.$router.go(-1);
     },
     getProduct(id) {
-      this.$router.push(`/user/product/${id}`);
+      this.$router.push(`/product/${id}`);
     },
   },
   created() {
