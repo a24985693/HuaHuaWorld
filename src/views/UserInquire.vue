@@ -14,7 +14,7 @@
         </div>
       </div>
     </div>
-    <div class="row justify-content-center g-5"
+    <div class="row justify-content-center gy-5 gx-md-5"
     v-if="order !== null && order.id">
       <div class="col-12 col-md-6 col-xl-5">
         <h4 class="mb-3">訂單明細</h4>
