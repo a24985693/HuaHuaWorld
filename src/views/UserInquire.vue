@@ -16,44 +16,40 @@
     </div>
     <div class="row justify-content-center g-5"
     v-if="order !== null && order.id">
-      <div class="col-12 col-xl-5">
-        <table class="table align-middle">
-          <thead>
-            <tr>
-              <th scope="col">品名</th>
-              <th scope="col" class="text-end">數量</th>
-              <th scope="col" class="text-end">單價</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="item in order.products" :key="item.id">
-              <td class="row flex-column flex-md-row align-items-center">
-                <div class="position-relative col w-100 w-xl-50 pt-100 pt-xl-50">
-                  <img :src="item.product.imageUrl" alt="商品圖片"
-                    class="object-fit-cover position-absolute top-0
-                    bottom-0 start-0 end-0 w-100 h-100">
-                </div>
-                <p class="col m-0 text-center">{{ item.product.title }}</p>
-              </td>
-              <td class="text-end">
-                {{ item.qty }}/{{ item.product.unit }}
-              </td>
-              <td class="text-end">NT${{ $filters.currency(item.final_total) }}</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr v-if="couponCode">
-              <td colspan="2" class="text-end text-success">已使用優惠券</td>
-              <td class="text-success text-end">{{ couponCode }}</td>
-            </tr>
-            <tr>
-              <td colspan="2" class="text-end">總計</td>
-              <td class="text-end">NT${{ $filters.currency(order.total) }}</td>
-            </tr>
-          </tfoot>
-        </table>
+      <div class="col-12 col-md-6 col-xl-5">
+        <h4 class="mb-3">訂單明細</h4>
+        <ul v-for="item in order.products" :key="item.id"
+        class="list-unstyled row border-bottom mb-0 py-3 align-items-center
+        bg-white">
+          <li class="col-5 col-xl-3">
+            <div class="position-relative w-100 pt-100">
+              <img :src="item.product.imageUrl" alt="商品圖片"
+              class="object-fit-cover position-absolute top-0
+              bottom-0 start-0 end-0 w-100 h-100">
+            </div>
+          </li>
+          <li class="col-7 col-xl-9">
+            <div class="row flex-column flex-xl-row
+            justify-content-md-between">
+              <p class="col-xl-6 fw-bold mb-xl-0">{{ item.product.title }}</p>
+              <p class="col-xl-2 mb-xl-0">x{{ item.qty }}</p>
+              <p class="col-xl-4 ps-auto mb-0 text-xl-end">
+                NT${{ $filters.currency(item.final_total) }}
+              </p>
+            </div>
+          </li>
+        </ul>
+        <ul v-if="couponCode" class="list-unstyled row bg-white pt-3">
+          <li class="col text-success text-end">已使用優惠券</li>
+          <li class="col text-success text-end">{{ couponCode }}</li>
+        </ul>
+        <ul class="list-unstyled row bg-white py-3">
+          <li class="col text-end">總計</li>
+          <li class="col text-end">NT${{ $filters.currency(order.total) }}</li>
+        </ul>
       </div>
-      <div class="col-12 col-xl-5">
+      <div class="col-12 col-md-6 col-xl-5">
+        <h4 class="mb-3">寄貨資料</h4>
         <table class="table mb-4">
           <tbody>
             <tr>
