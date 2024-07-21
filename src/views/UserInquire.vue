@@ -8,16 +8,15 @@
           <input type="text" class="form-control"
           placeholder="請輸入訂單號碼" v-model="orderId">
           <button class="btn btn-secondary" type="button"
-            @click="getOrder">
+          @click="getOrder">
             查詢
           </button>
         </div>
       </div>
     </div>
     <div class="row justify-content-center g-5"
-      v-if="order.id">
+    v-if="order !== null && order.id">
       <div class="col-12 col-xl-5">
-        <!-- <h5 class="mb-3">訂單明細</h5> -->
         <table class="table align-middle">
           <thead>
             <tr>
@@ -55,7 +54,6 @@
         </table>
       </div>
       <div class="col-12 col-xl-5">
-        <!-- <h4 class="mb-3">寄貨資料</h4> -->
         <table class="table mb-4">
           <tbody>
             <tr>
@@ -100,6 +98,11 @@
         </div>
       </div>
     </div>
+    <div v-else-if="warning">
+      <p class="h5 text-center text-danger">
+        {{ warning }}
+      </p>
+    </div>
   </div>
 </template>
 
@@ -115,24 +118,36 @@ export default {
       },
       couponCode: '',
       isLoading: false,
+      warning: '',
     };
   },
   mixins: [fullpathMixin],
   methods: {
     getOrder() {
+      this.order = {};
       this.isLoading = true;
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order/${this.orderId}`;
-      this.$http.get(url)
-        .then((res) => {
-          this.isLoading = false;
-          // console.log(res.data);
-          this.order = res.data.order;
-          const key = Object.keys(res.data.order.products)[0];
-          const productKey = res.data.order.products[key];
-          if (productKey.coupon) {
-            this.couponCode = productKey.coupon.code;
-          }
-        });
+      const id = this.orderId.trim();
+      if (id) {
+        const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/order/${id}`;
+        this.$http.get(url)
+          .then((res) => {
+            this.isLoading = false;
+            if (res.data.order) {
+              this.order = res.data.order;
+              const key = Object.keys(res.data.order.products)[0];
+              const productKey = res.data.order.products[key];
+              if (productKey.coupon) {
+                this.couponCode = productKey.coupon.code;
+              }
+            } else {
+              this.order = res.data.order;
+              this.warning = '訂單號碼輸入錯誤，請重新輸入';
+            }
+          });
+      } else {
+        this.isLoading = false;
+        this.warning = '訂單號碼不可為空，請輸入訂單號碼';
+      }
     },
     payOrder() {
       this.isLoading = true;
