@@ -39,7 +39,7 @@
             </div>
           </li>
         </ul>
-        <ul v-if="couponCode" class="list-unstyled row bg-white pt-3">
+        <ul v-if="couponCode" class="list-unstyled row bg-white pt-3 mb-0">
           <li class="col text-success text-end">已使用優惠券</li>
           <li class="col text-success text-end">{{ couponCode }}</li>
         </ul>
